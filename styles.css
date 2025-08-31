@@ -1,0 +1,643 @@
+:root {
+  --primary-color: #4070f4;
+  --secondary-color: #1bcfb4;
+  --support-1: #4bcbeb;
+  --support-2: #fe9496;
+  --support-3: #9e58ff;
+  --white: #fff;
+  --text-1: #333;
+  --gradient-1: linear-gradient(
+    90deg,
+    rgba(254, 148, 150, 1) 0%,
+    rgba(255, 0, 87, 1) 100%
+  );
+  --gradient-2: linear-gradient(
+    -90deg,
+    rgba(28, 130, 231, 0.772) 0%,
+    rgb(39, 54, 223) 100%
+  );
+  --gradient-3: linear-gradient(
+    90deg,
+    rgba(78, 255, 228, 1) 0%,
+    rgba(0, 139, 109, 1) 100%
+  );
+}
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "poppins", sans-serif;
+}
+body {
+  background-color: #b3b8bc;
+  overflow-x: hidden;
+}
+.navbar {
+  position: fixed;
+  z-index: 1;
+  width: 100%;
+  height: 4rem;
+  padding: 1.5rem;
+  align-items: center;
+  gap: 2rem;
+  color: #181818;
+  background-color: var(--white);
+  display: flex;
+  /* From https://css.glass */
+  background: rgba(255, 255, 255, 0.13);
+  border-radius: 16px ;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+.navbar h1 {
+  font-size: 2rem;
+  font-weight: 520;
+  line-height: 1.5rem;
+}
+.navbar i {
+  font-size: 25px;
+  display: none;
+}
+.navlist {
+  text-transform: capitalize;
+  cursor: pointer;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.navlist a {
+  color: black;
+}
+.navlist li:hover {
+  transform: scale(1.2);
+  font-weight: 500;
+  border-bottom: 1px solid var(--text-1);
+}
+.first-page {
+  width: 100%;
+  height: calc(100vh);
+  background-image: url(./assets/Meteor.svg);
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "SUSE", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 100;
+  font-style: normal;
+}
+.mainheading {
+  color: var(--white);
+  text-align: center;
+  font-size: 5rem;
+  line-height: 1.5rem;
+  font-weight: 550;
+  display: flex;
+  gap: 20px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  text-transform: capitalize;
+}
+.mainheading span {
+  font-size: 7rem;
+}
+@media screen and (max-width: 965px) {
+  .mainheading {
+    flex-direction: column;
+    font-size: 3rem;
+  }
+  .mainheading span {
+    margin-top: 10px;
+    font-size: 4rem;
+  }
+  .navlist {
+    visibility: hidden;
+  }
+  .cards {
+    gap: 30px;
+  }
+  .navbar i {
+    display: block;
+  }
+}
+.navlist a {
+  text-decoration: none;
+  color: black;
+}
+.head-dashboard {
+  display: flex;
+  gap: 1.5rem;
+  border-bottom: 2px solid black;
+  width: 100%;
+  padding: 10px 0;
+}
+#tach1 {
+  font-size: 30px;
+}
+.dashboard-inner {
+  padding: 1.5rem;
+  width: 100%;
+  margin-top: 15px;
+
+  color: white;
+  display: flex;
+  flex-direction: column;
+  background: rgb(37, 79, 134);
+  padding: 15px;
+  gap: 1.5rem;
+  text-transform: capitalize;
+  align-items: center;
+  margin-bottom: 15px;
+}
+.dashboard-inner i {
+  /* color: #4070f4; */
+  font-size: 1.5rem;
+}
+.cards {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  padding: 40px 20px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.balance {
+  border: 1px solid #4070f4;
+  border-radius: 20px;
+  background-color: rgb(37, 79, 134);
+  padding: 10px 70px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  text-align: center;
+  cursor: pointer;
+}
+.balance i {
+  color: white;
+}
+.balance p {
+  color: white;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.income {
+  border: 1px solid #4070f4;
+  border-radius: 20px;
+  background-color: rgb(37, 79, 134);
+  padding: 10px 65px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  text-align: center;
+  cursor: pointer;
+}
+.income i {
+  color: white;
+}
+.income p {
+  color: white;
+  font-size: 20px;
+  font-weight: 600;
+}
+.expense {
+  border: 1px solid #4070f4;
+  border-radius: 20px;
+  background-color: rgb(37, 79, 134);
+  padding: 10px 70px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  text-align: center;
+  cursor: pointer;
+}
+.expense i {
+  color: white;
+}
+.expense p {
+  color: white;
+  font-size: 20px;
+  font-weight: 600;
+}
+.income-page {
+  width: 100%;
+  /* height: 100vh; */
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 15px;
+}
+.income-page i {
+  color: var(--primary-color);
+}
+.income-details {
+  box-sizing: border-box;
+  min-width: 32.5%;
+  gap: 1.5rem;
+  padding-top: 8rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  min-height: 100%;
+  border-radius: 20px;
+  color: white;
+  background-color: rgb(37, 79, 134);
+}
+.income-details h2 {
+  color: white;
+}
+.income-form {
+  display: flex;
+  gap: 2rem;
+  padding-top: 2rem;
+  flex-direction: column;
+  color: white;
+  font-weight: 600;
+}
+.input-feild {
+  display: flex;
+  gap: 1rem;
+  background-color: rgb(37, 79, 134);
+  flex-direction: column;
+  color: white;
+}
+.input-feild input {
+  padding: 0.5rem;
+  border-radius: 20px;
+  background-color: rgb(37, 79, 134);
+  color: white;
+  border: 1px solid var(--text-1);
+}
+
+.input-feild input::placeholder{
+  color: white;
+}
+
+.input-feild select {
+  background-color: rgb(37, 79, 134);
+  color: #fff;
+}
+.input-btn {
+  text-align: center;
+  color: var(--white);
+}
+.input-btn i {
+  color: #fff;
+}
+.add-inc {
+  padding: 3px 5rem;
+  color: white;
+  background-color: white;
+  border: 5px solid var(--primary-color);
+  border-radius: 30px;
+}
+.heading-incomedetails {
+  display: flex;
+  height: 40px;
+  border-bottom: 2px solid black;
+  text-transform: capitalize;
+  width: 100%;
+  gap: 1.5rem;
+  color: var(--text-1);
+}
+.heading-incomedetails i {
+  color: white;
+}
+.income-history {
+  box-sizing: border-box;
+  min-width: 32.5%;
+  max-width: 100%;
+  border-radius: 20px;
+  gap: 1.5rem;
+  padding-top: 4rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  max-height: 100%;
+  background-color: rgb(37, 79, 134);
+}
+.income-chart {
+  min-width: 32.5%;
+  gap: 1.5rem;
+  height: 100vh;
+  padding-top: 8rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  background-color: rgb(37, 79, 134);
+  border-radius: 20px;
+}
+.heading-incomehistory {
+  display: flex;
+  height: 40px;
+  border-bottom: 2px solid black;
+  text-transform: capitalize;
+  width: 100%;
+  gap: 1.5rem;
+  color: white;
+}
+.heading-incomehistory h2 {
+  color: white;
+}
+.heading-incomehistory i {
+  color: white;
+}
+
+.heading-incomechart h2 {
+  color: white;
+}
+.heading-incomechart i {
+  color: white;
+}
+.listTrans {
+  font-size: 0.8rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 90%;
+  max-height: 100vh;
+  overflow-y: scroll;
+  padding: 1.5rem;
+}
+.listTrans li {
+  list-style: none;
+  background-color: rgb(62, 165, 158);
+  /* width: 80%; */
+  font-size: 1rem;
+  margin: 0 auto;
+  padding: 0.2rem 0.6rem;
+  border-radius: 1rem;
+  color: rgb(163, 196, 18);
+  font-weight: 500;
+}
+.listTrans li span {
+  color: var(--text-1);
+  font-weight: 700;
+}
+.heading-incomechart {
+  display: flex;
+  height: 40px;
+  border-bottom: 2px solid black;
+  text-transform: capitalize;
+  width: 100%;
+  gap: 1.5rem;
+  color: var(--text-1);
+}
+@media screen and (max-width: 1440px) {
+  .income-page {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-bottom: 20px;
+  }
+  .income-chart {
+    min-height: 100vh;
+  }
+  .income-history {
+    min-height: 100vh;
+  }
+  .input-btn {
+    margin-bottom: 1rem;
+  }
+  .budget-inner {
+    display: flex;
+    flex-direction: column;
+  }
+  footer {
+    display: none;
+  }
+}
+.budget-inner {
+  margin: 0 6px;
+  display: flex;
+  gap: 0.6rem;
+  min-height: 50vh;
+  margin-bottom: 1rem;
+}
+.budget-details {
+  min-width: 33%;
+  background-color: rgb(37, 79, 134);
+  gap: 1.5rem;
+  min-height: 100%;
+  padding-top: 4rem;
+  padding-bottom: 2rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  border-radius: 20px;
+}
+.heading-budgetdetails {
+  display: flex;
+  height: 40px;
+  border-bottom: 2px solid black;
+  text-transform: capitalize;
+  width: 100%;
+  gap: 1.5rem;
+  color: white;
+}
+.heading-budgetdetails i {
+  color: white;
+}
+.budget-list {
+  min-width: 66.5%;
+  background-color: rgb(37, 79, 134);
+  gap: 1.5rem;
+  padding-top: 4rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  min-height: 100%;
+  border-radius: 20px;
+}
+.heading-budgetlist {
+  display: flex;
+  height: 40px;
+  border-bottom: 2px solid black;
+  text-transform: capitalize;
+  width: 100%;
+  gap: 1.5rem;
+  color: white;
+}
+.heading-budgetlist i {
+  color: white;
+}
+.budget-details-form {
+  display: flex;
+  gap: 2rem;
+  padding-top: 2rem;
+  flex-direction: column;
+  color: white;
+  font-weight: 600;
+}
+.budget-list {
+  width: 100%;
+  max-height: 100%;
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+.budget-list li {
+  list-style: none;
+  width: 90%;
+  margin: 0 auto;
+  padding: 0.2rem 0.6rem;
+  border-radius: 1rem;
+  color: var(--text-1);
+  font-weight: 500;
+  /* overflow-y: scroll; */
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+}
+.budget-list li .bar {
+  width: 100%;
+  background-color: #e6e5e5;
+  padding: 0.25rem;
+  height: 0.8rem;
+  display: flex;
+  align-content: center;
+  flex-wrap: wrap;
+  border-radius: 1rem;
+}
+.budget-list li .bar .bar-color {
+  background-color: orange;
+  border-radius: 1rem;
+  height: 0.5rem;
+}
+
+.expense-page {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 15px;
+}
+.expense-page i {
+  color: white;
+}
+.expense-details {
+  min-width: 32.5%;
+  gap: 1.5rem;
+  padding-top: 8rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  height: 100%;
+  background-color: rgb(37, 79, 134);
+  border-radius: 20px;
+}
+
+.expense-details h2 {
+  color: white;
+}
+.expense-form {
+  display: flex;
+  gap: 2rem;
+  padding-top: 2rem;
+  flex-direction: column;
+  color: white;
+  font-weight: 600;
+}
+.input-feild {
+  display: flex;
+  gap: 1rem;
+  flex-direction: column;
+  color: white;
+}
+.input-feild input {
+  padding: 0.5rem;
+  border-radius: 20px;
+  border: 1px solid var(--text-1);
+}
+.input-btn {
+  text-align: center;
+  color: var(--white);
+}
+.input-btn i {
+  color: #fff;
+}
+button.add-inc {
+  padding: 3px 5rem;
+  background-color: var(--primary-color);
+  color: white;
+  border: 5px solid var(--primary-color);
+  border-radius: 30px;
+}
+.heading-expensedetails {
+  display: flex;
+  height: 40px;
+  border-bottom: 2px solid black;
+  text-transform: capitalize;
+  width: 100%;
+  gap: 1.5rem;
+  color: var(--text-1);
+}
+.expense-history {
+  min-width: 32.5%;
+  gap: 1.5rem;
+  padding-top: 4rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  height: 100%;
+  background-color: rgb(37, 79, 134);
+  border-radius: 20px;
+}
+.expense-chart {
+  min-width: 32.5%;
+  gap: 1.5rem;
+  height: 100vh;
+  padding-top: 8rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  background-color: rgb(37, 79, 134);
+  border-radius: 20px;
+}
+.heading-expensehistory {
+  display: flex;
+  height: 40px;
+  border-bottom: 2px solid black;
+  text-transform: capitalize;
+  width: 100%;
+  gap: 1.5rem;
+  color: white;
+}
+.heading-expensechart {
+  display: flex;
+  height: 40px;
+  border-bottom: 2px solid black;
+  text-transform: capitalize;
+  width: 100%;
+  gap: 1.5rem;
+  color: white;
+}
+@media screen and (max-width: 1440px) {
+  .expense-page {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-bottom: 20px;
+  }
+  .expense-chart {
+    min-height: 100vh;
+  }
+  .expense-history {
+    min-height: 100vh;
+  }
+  .input-btn {
+    margin-bottom: 1rem;
+  }
+  footer {
+    display: none;
+  }
+}
+select {
+  padding: 0.5rem;
+  border-radius: 20px;
+  border: 1px solid var(--text-1);
+}
+option {
+  color: var(--text-1);
+}
+
+canvas{
+  /* background-color: black; */
+  margin:10px 0 0 0;
+}
